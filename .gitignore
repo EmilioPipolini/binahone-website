@@ -1,5 +1,4 @@
-
-# Dependencies
+﻿# Dependencies
 node_modules/
 
 # Astro
@@ -19,4 +18,3 @@ Thumbs.db
 .vscode/*
 !.vscode/extensions.json
 !.vscode/settings.json
-
