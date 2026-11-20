@@ -1,0 +1,38 @@
+---
+import MainLayout from '../../layouts/MainLayout.astro';
+import ServicesSection from '../../components/global/ServicesSection.astro';
+import TheChallenge from '../../components/global/TheChallenge.astro';
+import GrowthSection from '../../components/global/GrowthSection.astro';
+import OurApproach from '../../components/global/OurApproach.astro';
+import HowWeWork from '../../components/global/HowWeWork.astro';
+---
+
+<MainLayout
+  title="BinahOne | From Insight to Growth"
+  description="BinahOne — Revenue Operations & Growth."
+  lang="pt-BR"
+>
+  <main>
+    <section class="flex min-h-[65vh] items-center bg-white px-6 py-24 md:px-12 lg:px-20">
+      <div class="mx-auto w-full max-w-7xl">
+        <p class="text-sm font-semibold uppercase tracking-[0.18em] text-slate-500">
+          Operações de Receita & Crescimento
+        </p>
+
+        <h1 class="mt-6 max-w-4xl text-5xl font-semibold leading-tight tracking-tight text-slate-900 md:text-7xl">
+          Da Visão<br />ao Crescimento.
+        </h1>
+
+        <p class="mt-8 max-w-2xl text-xl leading-relaxed text-slate-600">
+          Planejamos. Construímos. Operamos.
+        </p>
+      </div>
+    </section>
+
+    <TheChallenge locale="pt-br" />
+    <GrowthSection locale="pt-br" />
+    <OurApproach locale="pt-br" />
+    <HowWeWork locale="pt-br" />
+    <ServicesSection locale="pt-br" />
+  </main>
+</MainLayout>

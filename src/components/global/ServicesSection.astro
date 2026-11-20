@@ -1,0 +1,91 @@
+
+---
+import { getCollection } from 'astro:content';
+
+interface Props {
+  locale: 'en' | 'pt-br';
+}
+
+const { locale } = Astro.props;
+
+const services = (await getCollection(
+  'services',
+  ({ data }) => data.locale === locale && !data.draft,
+)).sort((a, b) => a.data.order - b.data.order);
+
+const content = {
+  en: {
+    eyebrow: 'WHAT WE DO',
+    title: 'Integrated solutions for business growth.',
+    description:
+      'Every business is different. We design our approach around your goals, structure and stage of growth.',
+    capabilities: 'Areas of focus',
+  },
+  'pt-br': {
+    eyebrow: 'O QUE FAZEMOS',
+    title: 'Soluções integradas para o crescimento dos negócios.',
+    description:
+      'Cada negócio é diferente. Desenhamos nossa abordagem de acordo com seus objetivos, estrutura e estágio de crescimento.',
+    capabilities: 'Áreas de atuação',
+  },
+}[locale];
+---
+
+{services.length > 0 && (
+  <section id="services" class="bg-white px-6 py-24 md:px-12 lg:px-20">
+    <div class="mx-auto max-w-7xl">
+      <div class="max-w-3xl">
+        <p class="text-sm font-semibold uppercase tracking-[0.18em] text-slate-500">
+          {content.eyebrow}
+        </p>
+
+        <h2 class="mt-4 text-3xl font-semibold tracking-tight text-slate-900 md:text-5xl">
+          {content.title}
+        </h2>
+
+        <p class="mt-6 text-lg leading-relaxed text-slate-600">
+          {content.description}
+        </p>
+      </div>
+
+      <div class="mt-16 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+        {services.map((service) => (
+          <article class="flex flex-col border-t border-slate-200 pt-7">
+            <h3 class="text-xl font-semibold tracking-tight text-slate-900">
+              {service.data.title}
+            </h3>
+
+            <p class="mt-5 text-lg font-medium leading-relaxed text-slate-800">
+              {service.data.headline}
+            </p>
+
+            <p class="mt-4 leading-relaxed text-slate-600">
+              {service.data.objective}
+            </p>
+
+            <div class="mt-8">
+              <h4 class="text-xs font-semibold uppercase tracking-wider text-slate-500">
+                {content.capabilities}
+              </h4>
+
+              <ul class="mt-4 space-y-3">
+                {service.data.capabilities.map((capability) => (
+                  <li class="flex gap-3 text-sm leading-relaxed text-slate-600">
+                    <span class="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-slate-400"></span>
+                    {capability}
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+          <div class="mt-auto pt-8">
+            <p class="border-t border-slate-100 pt-5 text-sm leading-relaxed text-slate-500">
+              {service.data.integratedApproach}
+            </p>
+          </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+)}

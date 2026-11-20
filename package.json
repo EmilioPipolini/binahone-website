@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "dev": "astro dev",
-    "build": "astro build",
+    "validate:content": "node scripts/validate-translations.mjs",
+    "check": "astro check && npm run validate:content",
+    "build": "npm run validate:content && astro build",
     "preview": "astro preview"
   },
   "repository": {
@@ -22,6 +24,7 @@
   "homepage": "https://github.com/EmilioPipolini/binahone-website#readme",
   "private": "true",
   "dependencies": {
+    "@astrojs/check": "^0.9.12",
     "@astrojs/react": "^7.1.9",
     "@tailwindcss/vite": "^4.3.5",
     "@types/react": "^19.3.0",
@@ -29,6 +32,7 @@
     "astro": "^7.4.13",
     "react": "^19.3.1",
     "react-dom": "^19.3.1",
-    "tailwindcss": "^4.3.5"
+    "tailwindcss": "^4.3.5",
+    "typescript": "^6.0.3"
   }
 }

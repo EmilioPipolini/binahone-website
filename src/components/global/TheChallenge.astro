@@ -1,0 +1,109 @@
+
+---
+interface Props {
+  locale: 'en' | 'pt-br';
+}
+
+const { locale } = Astro.props;
+
+const content = {
+  en: {
+    eyebrow: 'THE CHALLENGE',
+    title: 'Growth requires more than individual efforts.',
+    introduction:
+      "Most companies don't struggle because of a lack of tools. They struggle because teams, processes, data and technology operate in isolation.",
+    challenges: [
+      {
+        number: '01',
+        title: 'Marketing & Sales',
+        description:
+          'Marketing generates opportunities that sales cannot efficiently convert.',
+      },
+      {
+        number: '02',
+        title: 'Sales Operations',
+        description:
+          'Sales processes lack visibility and consistency.',
+      },
+      {
+        number: '03',
+        title: 'Customer Relationships',
+        description:
+          'Customer relationships are not always structured to support adoption, retention and expansion.',
+      },
+    ],
+    conclusion:
+      'BinahOne helps organizations connect their revenue operations — improving acquisition, conversion, retention and customer expansion.',
+  },
+  'pt-br': {
+    eyebrow: 'O DESAFIO',
+    title: 'Crescer exige mais do que esforços individuais.',
+    introduction:
+      'A maioria das empresas não enfrenta dificuldades por falta de ferramentas. O desafio está no fato de equipes, processos, dados e tecnologia operarem de forma isolada.',
+    challenges: [
+      {
+        number: '01',
+        title: 'Marketing & Vendas',
+        description:
+          'O marketing gera oportunidades que a equipe de vendas não consegue converter com eficiência.',
+      },
+      {
+        number: '02',
+        title: 'Operações de Vendas',
+        description:
+          'Os processos de vendas carecem de visibilidade e consistência.',
+      },
+      {
+        number: '03',
+        title: 'Relacionamento com Clientes',
+        description:
+          'Os relacionamentos com clientes nem sempre são estruturados para apoiar adoção, retenção e expansão.',
+      },
+    ],
+    conclusion:
+      'A BinahOne ajuda as empresas a conectar suas operações de receita — melhorando a aquisição, a conversão, a retenção e a expansão de clientes.',
+  },
+}[locale];
+---
+
+<section id="challenge" class="bg-slate-50 px-6 py-24 md:px-12 lg:px-20">
+  <div class="mx-auto max-w-7xl">
+    <div class="max-w-4xl">
+      <p class="text-sm font-semibold uppercase tracking-[0.18em] text-slate-500">
+        {content.eyebrow}
+      </p>
+
+      <h2 class="mt-4 text-3xl font-semibold tracking-tight text-slate-900 md:text-5xl">
+        {content.title}
+      </h2>
+
+      <p class="mt-6 max-w-3xl text-lg leading-relaxed text-slate-600">
+        {content.introduction}
+      </p>
+    </div>
+
+    <div class="mt-16 grid gap-10 md:grid-cols-3 md:gap-8">
+      {content.challenges.map((challenge) => (
+        <article class="border-t border-slate-200 pt-6">
+          <p class="text-sm font-semibold tracking-wider text-slate-400">
+            {challenge.number}
+          </p>
+
+          <h3 class="mt-5 text-xl font-semibold tracking-tight text-slate-900">
+            {challenge.title}
+          </h3>
+
+          <p class="mt-4 leading-relaxed text-slate-600">
+            {challenge.description}
+          </p>
+        </article>
+      ))}
+    </div>
+
+    <div class="mt-16 max-w-4xl border-t border-slate-200 pt-8">
+      <p class="text-lg font-medium leading-relaxed text-slate-800">
+        {content.conclusion}
+      </p>
+    </div>
+  </div>
+</section>

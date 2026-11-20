@@ -1,0 +1,403 @@
+
+---
+interface Props {
+  locale: 'en' | 'pt-br';
+}
+
+const { locale } = Astro.props;
+
+const content = {
+  en: {
+    eyebrow: 'HOW WE WORK',
+    headline: 'We Design. We Build. We Operate.',
+    introduction:
+      "We help businesses turn strategy into execution through the right combination of design, implementation and operational support. Our involvement adapts to each organization's needs, capabilities and stage of growth.",
+    capabilities: [
+      {
+        name: 'Design.',
+        label: 'CLARITY & DIRECTION',
+        statement:
+          'We understand the business before designing the solution.',
+        description:
+          'We assess business needs, identify opportunities and define the strategies, processes and operating structures required to support sustainable growth.',
+      },
+      {
+        name: 'Build.',
+        label: 'STRUCTURE & IMPLEMENTATION',
+        statement:
+          'We turn strategy into practical business capabilities.',
+        description:
+          'We implement processes, systems, integrations and automation that connect teams, enable execution and create a foundation for scalable operations.',
+      },
+      {
+        name: 'Operate.',
+        label: 'EXECUTION & CONTINUOUS IMPROVEMENT',
+        statement:
+          'We help businesses operate, perform and improve over time.',
+        description:
+          "Depending on each client's needs, we help enable teams, support execution, manage operational responsibilities or operate defined activities. Our goal is always the same: strengthen performance, maintain consistency and drive continuous improvement.",
+      },
+    ],
+    closing:
+      'From strategy to execution. From execution to growth.',
+  },
+
+  'pt-br': {
+    eyebrow: 'COMO TRABALHAMOS',
+    headline: 'Planejamos. Construímos. Operamos.',
+    introduction:
+      'Ajudamos empresas a transformar estratégia em execução por meio da combinação certa de planejamento, implementação e suporte operacional. Nossa atuação se adapta às necessidades, capacidades e ao estágio de crescimento de cada negócio.',
+    capabilities: [
+      {
+        name: 'Planejamos.',
+        label: 'CLAREZA E DIRECIONAMENTO',
+        statement:
+          'Entendemos o negócio antes de definir as soluções.',
+        description:
+          'Avaliamos as necessidades do negócio, identificamos oportunidades e definimos as estratégias, os processos e as estruturas operacionais necessários para sustentar o crescimento.',
+      },
+      {
+        name: 'Construímos.',
+        label: 'ESTRUTURA E IMPLEMENTAÇÃO',
+        statement:
+          'Transformamos estratégia em capacidades práticas para o negócio.',
+        description:
+          'Implementamos processos, sistemas, integrações e automações que conectam equipes, viabilizam a execução e criam uma base para operações escaláveis.',
+      },
+      {
+        name: 'Operamos.',
+        label: 'EXECUÇÃO E MELHORIA CONTÍNUA',
+        statement:
+          'Ajudamos empresas a manter suas operações funcionando, evoluindo e gerando resultados ao longo do tempo.',
+        description:
+          'De acordo com as necessidades de cada cliente, podemos capacitar equipes, apoiar a execução, gerenciar responsabilidades operacionais ou assumir atividades específicas. Nosso objetivo é sempre o mesmo: fortalecer o desempenho, manter a consistência e promover a melhoria contínua.',
+      },
+    ],
+    closing:
+      'Da estratégia à execução. Da execução ao crescimento.',
+  },
+}[locale];
+---
+
+<section id="how-we-work" class="how-we-work-section">
+  <div class="how-we-work-container">
+
+    <header class="how-we-work-header">
+      <p class="how-we-work-eyebrow">
+        {content.eyebrow}
+      </p>
+
+      <h2 class="how-we-work-headline">
+        {content.headline}
+      </h2>
+
+      <div
+        class="how-we-work-connection"
+        aria-hidden="true"
+      ></div>
+
+      <p class="how-we-work-introduction">
+        {content.introduction}
+      </p>
+    </header>
+
+    <div class="how-we-work-capabilities">
+      {content.capabilities.map((capability) => (
+        <article class="how-we-work-capability">
+          <h3 class="how-we-work-capability-title">
+            {capability.name}
+          </h3>
+
+          <p class="how-we-work-capability-label">
+            {capability.label}
+          </p>
+
+          <p class="how-we-work-capability-statement">
+            {capability.statement}
+          </p>
+
+          <p class="how-we-work-capability-description">
+            {capability.description}
+          </p>
+        </article>
+      ))}
+    </div>
+
+    <footer class="how-we-work-footer">
+      <div
+        class="how-we-work-footer-accent"
+        aria-hidden="true"
+      ></div>
+
+      <p class="how-we-work-closing">
+        {content.closing}
+      </p>
+    </footer>
+
+  </div>
+</section>
+
+<style>
+  .how-we-work-section {
+    background: #ffffff;
+    color: #0b1b3b;
+    padding: 112px 32px;
+    font-family: 'Manrope', sans-serif;
+  }
+
+  .how-we-work-container {
+    width: 100%;
+    max-width: 1200px;
+    margin-inline: auto;
+  }
+
+  /* Header */
+
+  .how-we-work-header {
+    max-width: 1080px;
+  }
+
+  .how-we-work-eyebrow {
+    margin: 0 0 24px;
+    color: #64748b;
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 1.5;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+  }
+
+  .how-we-work-headline {
+    margin: 0;
+    color: #0b1b3b;
+    font-size: clamp(40px, 4.2vw, 56px);
+    font-weight: 600;
+    line-height: 1.12;
+    letter-spacing: -0.045em;
+  }
+
+  .how-we-work-connection {
+    width: 100%;
+    height: 2px;
+    margin-top: 24px;
+    background: linear-gradient(
+      90deg,
+      #2563ff 0%,
+      rgba(37, 99, 255, 0.48) 38%,
+      rgba(37, 99, 255, 0.12) 78%,
+      rgba(37, 99, 255, 0) 100%
+    );
+  }
+
+  .how-we-work-introduction {
+    max-width: 850px;
+    margin: 28px 0 0;
+    color: #475569;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 1.65;
+  }
+
+  /* Capabilities */
+
+  .how-we-work-capabilities {
+    display: grid;
+    grid-template-columns:
+      minmax(0, 0.95fr)
+      minmax(0, 1.08fr)
+      minmax(0, 0.97fr);
+    column-gap: 52px;
+    align-items: start;
+    margin-top: 88px;
+  }
+
+  .how-we-work-capability {
+    min-width: 0;
+  }
+
+  .how-we-work-capability-title {
+    margin: 0;
+    color: #0b1b3b;
+    font-size: 44px;
+    font-weight: 600;
+    line-height: 1.12;
+    letter-spacing: -0.045em;
+  }
+
+  .how-we-work-capability-label {
+    margin: 16px 0 0;
+    color: #64748b;
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 1.5;
+    letter-spacing: 0.055em;
+  }
+
+  .how-we-work-capability-statement {
+    margin: 34px 0 0;
+    color: #0b1b3b;
+    font-size: 17px;
+    font-weight: 600;
+    line-height: 1.5;
+  }
+
+  .how-we-work-capability-description {
+    margin: 18px 0 0;
+    color: #475569;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 1.6;
+  }
+
+  /* Closing */
+
+  .how-we-work-footer {
+    margin-top: 88px;
+  }
+
+  .how-we-work-footer-accent {
+    width: 52px;
+    height: 2px;
+    margin-bottom: 18px;
+    background: #2563ff;
+  }
+
+  .how-we-work-closing {
+    max-width: 1000px;
+    margin: 0;
+    color: #0b1b3b;
+    font-size: clamp(23px, 2.3vw, 30px);
+    font-weight: 600;
+    line-height: 1.35;
+    letter-spacing: -0.035em;
+  }
+
+  /* Tablet */
+
+  @media (min-width: 640px) and (max-width: 1023px) {
+    .how-we-work-section {
+      padding: 96px 28px;
+    }
+
+    .how-we-work-headline {
+      font-size: 44px;
+    }
+
+    .how-we-work-capabilities {
+      column-gap: 28px;
+      margin-top: 72px;
+    }
+
+    .how-we-work-capability-title {
+      font-size: 34px;
+    }
+
+    .how-we-work-capability-label {
+      font-size: 11px;
+    }
+
+    .how-we-work-capability-statement {
+      margin-top: 28px;
+      font-size: 16px;
+    }
+
+    .how-we-work-capability-description {
+      font-size: 14px;
+    }
+
+    .how-we-work-footer {
+      margin-top: 72px;
+    }
+  }
+
+  /* Mobile */
+
+  @media (max-width: 639px) {
+    .how-we-work-section {
+      padding: 80px 20px;
+    }
+
+    .how-we-work-eyebrow {
+      margin-bottom: 18px;
+      font-size: 11px;
+    }
+
+    .how-we-work-headline {
+      font-size: 36px;
+      line-height: 1.13;
+      letter-spacing: -0.04em;
+    }
+
+    .how-we-work-connection {
+      height: 2px;
+      margin-top: 20px;
+      background: linear-gradient(
+        90deg,
+        #2563ff 0%,
+        rgba(37, 99, 255, 0.35) 55%,
+        rgba(37, 99, 255, 0.06) 100%
+      );
+    }
+
+    .how-we-work-introduction {
+      margin-top: 24px;
+      font-size: 16px;
+      line-height: 1.65;
+    }
+
+    .how-we-work-capabilities {
+      grid-template-columns: minmax(0, 1fr);
+      gap: 40px;
+      margin-top: 56px;
+    }
+
+    .how-we-work-capability-title {
+      font-size: 32px;
+      line-height: 1.15;
+    }
+
+    .how-we-work-capability-label {
+      margin-top: 10px;
+      font-size: 11px;
+    }
+
+    .how-we-work-capability-statement {
+      margin-top: 20px;
+      font-size: 16px;
+      line-height: 1.55;
+    }
+
+    .how-we-work-capability-description {
+      margin-top: 12px;
+      font-size: 15px;
+      line-height: 1.6;
+    }
+
+    .how-we-work-footer {
+      margin-top: 64px;
+    }
+
+    .how-we-work-footer-accent {
+      width: 44px;
+      margin-bottom: 16px;
+    }
+
+    .how-we-work-closing {
+      font-size: 23px;
+      line-height: 1.4;
+    }
+  }
+
+  /* Accessibility */
+
+  @media (prefers-reduced-motion: reduce) {
+    .how-we-work-section *,
+    .how-we-work-section *::before,
+    .how-we-work-section *::after {
+      scroll-behavior: auto !important;
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+</style>

@@ -1,0 +1,115 @@
+
+---
+interface Props {
+  locale: 'en' | 'pt-br';
+}
+
+const { locale } = Astro.props;
+
+const content = {
+  en: {
+    eyebrow: 'GROWTH',
+    title: 'Attract. Convert. Retain & Expand.',
+    introduction:
+      'Sustainable growth is built through the right combination of people, processes and technology.',
+    areas: [
+      {
+        number: '01',
+        title: 'Attract',
+        solution: 'Marketing & Acquisition',
+        description: 'Generate demand and create qualified opportunities.',
+      },
+      {
+        number: '02',
+        title: 'Convert',
+        solution: 'Operations & Sales',
+        description:
+          'Improve sales execution, increase conversion and accelerate revenue growth.',
+      },
+      {
+        number: '03',
+        title: 'Retain & Expand',
+        solution: 'Customer Success',
+        description:
+          'Strengthen customer relationships, improve retention and unlock growth opportunities.',
+      },
+    ],
+    closing: 'Three areas. One focus: growth.',
+  },
+  'pt-br': {
+    eyebrow: 'CRESCIMENTO',
+    title: 'Atrair. Converter. Reter e Expandir.',
+    introduction:
+      'O crescimento sustentável é construído pela combinação certa de pessoas, processos e tecnologia.',
+    areas: [
+      {
+        number: '01',
+        title: 'Atrair',
+        solution: 'Marketing & Aquisição',
+        description: 'Gerar demanda e criar oportunidades qualificadas.',
+      },
+      {
+        number: '02',
+        title: 'Converter',
+        solution: 'Operações & Vendas',
+        description:
+          'Aprimorar a execução comercial, aumentar a conversão e acelerar resultados.',
+      },
+      {
+        number: '03',
+        title: 'Reter e Expandir',
+        solution: 'Customer Success',
+        description:
+          'Fortalecer o relacionamento com clientes, aumentar a retenção e criar novas oportunidades de crescimento.',
+      },
+    ],
+    closing: 'Três áreas. Um objetivo: crescimento.',
+  },
+}[locale];
+---
+
+<section id="growth" class="bg-white px-6 py-24 md:px-12 lg:px-20">
+  <div class="mx-auto max-w-7xl">
+    <div class="max-w-4xl">
+      <p class="text-sm font-semibold uppercase tracking-[0.18em] text-slate-500">
+        {content.eyebrow}
+      </p>
+
+      <h2 class="mt-4 text-3xl font-semibold tracking-tight text-slate-900 md:text-5xl">
+        {content.title}
+      </h2>
+
+      <p class="mt-6 max-w-3xl text-lg leading-relaxed text-slate-600">
+        {content.introduction}
+      </p>
+    </div>
+
+    <div class="mt-16 grid gap-10 md:grid-cols-3 md:gap-8">
+      {content.areas.map((area) => (
+        <article class="border-t border-slate-200 pt-6">
+          <p class="text-sm font-semibold tracking-wider text-slate-400">
+            {area.number}
+          </p>
+
+          <h3 class="mt-5 text-xl font-semibold tracking-tight text-slate-900">
+            {area.title}
+          </h3>
+
+          <p class="mt-2 text-sm font-semibold text-slate-700">
+            {area.solution}
+          </p>
+
+          <p class="mt-4 leading-relaxed text-slate-600">
+            {area.description}
+          </p>
+        </article>
+      ))}
+    </div>
+
+    <div class="mt-16 border-t border-slate-200 pt-8">
+      <p class="text-lg font-semibold leading-relaxed text-slate-900">
+        {content.closing}
+      </p>
+    </div>
+  </div>
+</section>

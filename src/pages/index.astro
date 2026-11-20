@@ -1,15 +1,39 @@
+
 ---
 import MainLayout from '../layouts/MainLayout.astro';
+import ServicesSection from '../components/global/ServicesSection.astro';
+import TheChallenge from '../components/global/TheChallenge.astro';
+import GrowthSection from '../components/global/GrowthSection.astro';
+import OurApproach from '../components/global/OurApproach.astro';
+import HowWeWork from '../components/global/HowWeWork.astro';
 ---
 
-<MainLayout title="BinahOne | From Insight to Growth">
-  <main class="min-h-screen bg-white p-8 text-slate-900">
-    <h1 class="text-5xl font-bold tracking-tight">
-      FROM INSIGHT TO GROWTH
-    </h1>
+<MainLayout
+  title="BinahOne | From Insight to Growth"
+  description="BinahOne — Revenue Operations & Growth."
+  lang="en"
+>
+  <main>
+    <section class="flex min-h-[65vh] items-center bg-white px-6 py-24 md:px-12 lg:px-20">
+      <div class="mx-auto w-full max-w-7xl">
+        <p class="text-sm font-semibold uppercase tracking-[0.18em] text-slate-500">
+          Revenue Operations & Growth
+        </p>
 
-    <p class="mt-4 text-lg text-slate-600">
-      BinahOne — Revenue Operations & Growth
-    </p>
+        <h1 class="mt-6 max-w-4xl text-5xl font-semibold leading-tight tracking-tight text-slate-900 md:text-7xl">
+          From Insight<br />to Growth.
+        </h1>
+
+        <p class="mt-8 max-w-2xl text-xl leading-relaxed text-slate-600">
+          We Design. We Build. We Operate.
+        </p>
+      </div>
+    </section>
+
+    <TheChallenge locale="en" />
+    <GrowthSection locale="en" />
+    <OurApproach locale="en" />
+    <HowWeWork locale="en" />
+    <ServicesSection locale="en" />
   </main>
 </MainLayout>

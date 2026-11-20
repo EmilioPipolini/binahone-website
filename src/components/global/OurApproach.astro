@@ -1,0 +1,441 @@
+
+---
+interface Props {
+  locale: 'en' | 'pt-br';
+}
+
+const { locale } = Astro.props;
+
+const content = {
+  en: {
+    eyebrow: 'OUR APPROACH',
+    headline: 'Turning strategy into execution.',
+    introduction: [
+      'Sustainable growth requires the right combination of strategy, people, processes, data and technology.',
+      'We bring these five dimensions together to help businesses execute with clarity, scale with confidence and improve continuously.',
+    ],
+    foundations: 'The Foundations of Execution',
+    dimensions: [
+      {
+        name: 'Strategy',
+        description: 'Direction and priorities.',
+      },
+      {
+        name: 'People',
+        description: 'Roles and capabilities.',
+      },
+      {
+        name: 'Processes',
+        description: 'Consistency and governance.',
+      },
+      {
+        name: 'Data',
+        description: 'Visibility and decision-making.',
+      },
+      {
+        name: 'Technology',
+        description: 'Systems and automation.',
+      },
+    ],
+    improvement: {
+      label: 'CONTINUOUS IMPROVEMENT',
+      statement: 'Measure. Learn. Optimize. Scale.',
+      description:
+        'Continuous improvement connects and strengthens every dimension.',
+    },
+  },
+  'pt-br': {
+    eyebrow: 'NOSSA ABORDAGEM',
+    headline: 'Transformando estratégia em execução.',
+    introduction: [
+      'O crescimento sustentável exige a combinação certa de estratégia, pessoas, processos, dados e tecnologia.',
+      'Reunimos essas cinco dimensões para ajudar empresas a executar com clareza, escalar com confiança e evoluir continuamente.',
+    ],
+    foundations: 'Os Fundamentos da Execução',
+    dimensions: [
+      {
+        name: 'Estratégia',
+        description: 'Direcionamento e prioridades.',
+      },
+      {
+        name: 'Pessoas',
+        description: 'Papéis e competências.',
+      },
+      {
+        name: 'Processos',
+        description: 'Consistência e governança.',
+      },
+      {
+        name: 'Dados',
+        description: 'Visibilidade e tomada de decisão.',
+      },
+      {
+        name: 'Tecnologia',
+        description: 'Sistemas e automação.',
+      },
+    ],
+    improvement: {
+      label: 'MELHORIA CONTÍNUA',
+      statement: 'Medir. Aprender. Otimizar. Escalar.',
+      description:
+        'A melhoria contínua conecta e fortalece todas as dimensões.',
+    },
+  },
+}[locale];
+---
+
+<section id="approach" class="approach-section">
+  <div class="approach-container">
+    <header class="approach-header">
+      <p class="approach-eyebrow">{content.eyebrow}</p>
+
+      <h2 class="approach-headline">{content.headline}</h2>
+
+      <div class="approach-introduction">
+        {content.introduction.map((paragraph) => (
+          <p>{paragraph}</p>
+        ))}
+      </div>
+    </header>
+
+    <div class="approach-framework">
+      <h3 class="approach-foundations">
+        {content.foundations}
+      </h3>
+
+      <div class="approach-structure">
+        <div class="approach-dimension approach-strategy">
+          <h4>{content.dimensions[0].name}</h4>
+          <p>{content.dimensions[0].description}</p>
+        </div>
+
+        <div class="approach-dimension">
+          <h4>{content.dimensions[1].name}</h4>
+          <p>{content.dimensions[1].description}</p>
+        </div>
+
+        <div class="approach-dimension">
+          <h4>{content.dimensions[2].name}</h4>
+          <p>{content.dimensions[2].description}</p>
+        </div>
+
+        <div class="approach-dimension">
+          <h4>{content.dimensions[3].name}</h4>
+          <p>{content.dimensions[3].description}</p>
+        </div>
+
+        <div class="approach-dimension">
+          <h4>{content.dimensions[4].name}</h4>
+          <p>{content.dimensions[4].description}</p>
+        </div>
+      </div>
+
+      <div class="approach-improvement">
+        <div class="approach-improvement-line" aria-hidden="true"></div>
+
+        <div class="approach-improvement-content">
+          <p class="approach-improvement-label">
+            {content.improvement.label}
+          </p>
+
+          <p class="approach-improvement-statement">
+            {content.improvement.statement}
+          </p>
+
+          <p class="approach-improvement-description">
+            {content.improvement.description}
+          </p>
+        </div>
+
+        <div class="approach-improvement-line" aria-hidden="true"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .approach-section {
+    background: #ffffff;
+    padding: 120px 32px;
+    color: #0b1b3b;
+    font-family: 'Manrope', sans-serif;
+  }
+
+  .approach-container {
+    width: 100%;
+    max-width: 1200px;
+    margin-inline: auto;
+  }
+
+  .approach-header {
+    max-width: 760px;
+  }
+
+  .approach-eyebrow {
+    margin: 0 0 20px;
+    color: #64748b;
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 1.5;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+  }
+
+  .approach-headline {
+    max-width: 760px;
+    margin: 0;
+    color: #0b1b3b;
+    font-size: 48px;
+    font-weight: 600;
+    line-height: 1.15;
+    letter-spacing: -0.035em;
+  }
+
+  .approach-introduction {
+    max-width: 720px;
+    margin-top: 28px;
+  }
+
+  .approach-introduction p {
+    margin: 0;
+    color: #64748b;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 1.6;
+  }
+
+  .approach-introduction p + p {
+    margin-top: 16px;
+  }
+
+  .approach-framework {
+    max-width: 960px;
+    margin: 72px auto 0;
+  }
+
+  .approach-foundations {
+    margin: 0 0 40px;
+    color: #0b1b3b;
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 1.3;
+    letter-spacing: -0.02em;
+  }
+
+  .approach-structure {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: 48px;
+    row-gap: 40px;
+    padding: 0 36px;
+  }
+
+  .approach-structure::before,
+  .approach-structure::after {
+    position: absolute;
+    top: 0;
+    bottom: -24px;
+    width: 1px;
+    background: #cbd5e1;
+    content: '';
+  }
+
+  .approach-structure::before {
+    left: 0;
+  }
+
+  .approach-structure::after {
+    right: 0;
+  }
+
+  .approach-dimension {
+    min-width: 0;
+  }
+
+  .approach-dimension h4 {
+    margin: 0;
+    color: #0b1b3b;
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 1.3;
+    letter-spacing: -0.02em;
+  }
+
+  .approach-dimension p {
+    margin: 8px 0 0;
+    color: #64748b;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.5;
+  }
+
+  .approach-strategy {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding-bottom: 4px;
+  }
+
+  .approach-improvement {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    margin-top: 64px;
+  }
+
+  .approach-improvement-line {
+    flex: 1;
+    height: 1px;
+    background: #cbd5e1;
+  }
+
+  .approach-improvement-content {
+    flex: 0 1 auto;
+    text-align: center;
+  }
+
+  .approach-improvement-label {
+    margin: 0;
+    color: #64748b;
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 1.5;
+    letter-spacing: 0.14em;
+  }
+
+  .approach-improvement-statement {
+    margin: 12px 0 0;
+    color: #0b1b3b;
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 1.5;
+  }
+
+  .approach-improvement-description {
+    margin: 8px 0 0;
+    color: #64748b;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.5;
+  }
+
+  @media (min-width: 1280px) {
+    .approach-section {
+      padding-inline: 48px;
+    }
+  }
+
+  @media (min-width: 640px) and (max-width: 1023px) {
+    .approach-section {
+      padding: 96px 24px;
+    }
+
+    .approach-headline {
+      font-size: 44px;
+    }
+
+    .approach-framework {
+      margin-top: 64px;
+    }
+
+    .approach-structure {
+      column-gap: 32px;
+      row-gap: 36px;
+      padding-inline: 28px;
+    }
+  }
+
+  @media (max-width: 639px) {
+    .approach-section {
+      padding: 80px 20px;
+    }
+
+    .approach-eyebrow {
+      margin-bottom: 16px;
+      font-size: 11px;
+    }
+
+    .approach-headline {
+      font-size: 36px;
+      line-height: 1.15;
+    }
+
+    .approach-introduction {
+      margin-top: 24px;
+    }
+
+    .approach-introduction p {
+      font-size: 16px;
+    }
+
+    .approach-framework {
+      margin-top: 48px;
+    }
+
+    .approach-foundations {
+      margin-bottom: 32px;
+      font-size: 21px;
+    }
+
+    .approach-structure {
+      grid-template-columns: minmax(0, 1fr);
+      gap: 28px;
+      padding: 0;
+    }
+
+    .approach-structure::before,
+    .approach-structure::after {
+      display: none;
+    }
+
+    .approach-strategy {
+      grid-column: auto;
+      text-align: left;
+      padding-bottom: 0;
+    }
+
+    .approach-dimension h4 {
+      font-size: 22px;
+    }
+
+    .approach-dimension p {
+      margin-top: 6px;
+      font-size: 15px;
+    }
+
+    .approach-improvement {
+      flex-direction: column;
+      gap: 20px;
+      margin-top: 48px;
+    }
+
+    .approach-improvement-line {
+      width: 100%;
+      flex: none;
+    }
+
+    .approach-improvement-content {
+      width: 100%;
+    }
+
+    .approach-improvement-statement {
+      font-size: 18px;
+    }
+
+    .approach-improvement-description {
+      max-width: 300px;
+      margin-inline: auto;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .approach-section *,
+    .approach-section *::before,
+    .approach-section *::after {
+      scroll-behavior: auto !important;
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+</style>
